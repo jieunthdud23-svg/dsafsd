@@ -1,330 +1,332 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>부경대 사회복지학 실무역량 짱</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>부경대 사회복지학 실무역량 짱</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Pretendard", sans-serif;
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Pretendard",sans-serif;
+}
+
+body{
+    background:#dce9ff;
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.desktop{
+    width:95%;
+    height:92vh;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:140px 1fr 1fr;
+    gap:20px;
+}
+
+.window{
+    background:white;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.12);
+}
+
+.window-header{
+    background:#bdd3ff;
+    padding:14px 18px;
+    display:flex;
+    align-items:center;
+}
+
+.circle{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    margin-right:7px;
+}
+
+.red{
+    background:#ff5f57;
+}
+
+.yellow{
+    background:#ffbd2e;
+}
+
+.green{
+    background:#28c840;
+}
+
+.window-title{
+    margin-left:10px;
+    font-weight:bold;
+    color:#274a92;
+}
+
+.main{
+    grid-column:1/3;
+    background:linear-gradient(135deg,#d9e7ff,#f6f9ff);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:40px;
+}
+
+.main-text h1{
+    font-size:58px;
+    line-height:1.1;
+    color:#23448d;
+}
+
+.main-text span{
+    color:#4d7ae7;
+}
+
+.main-text p{
+    margin-top:18px;
+    color:#555;
+    font-size:20px;
+}
+
+.main-circle{
+    width:240px;
+    height:240px;
+    border-radius:50%;
+    background:#c8daff;
+}
+
+.content{
+    padding:28px;
+}
+
+.temp{
+    font-size:56px;
+    font-weight:bold;
+    color:#3565d8;
+}
+
+.list{
+    margin-top:15px;
+}
+
+.list li{
+    margin-bottom:14px;
+    line-height:1.5;
+}
+
+.stat{
+    font-size:42px;
+    color:#3565d8;
+    font-weight:bold;
+}
+
+footer{
+    position:fixed;
+    bottom:10px;
+    color:#36548e;
+    font-size:14px;
+}
+
+@media(max-width:900px){
+
+    body{
+        overflow:auto;
+        height:auto;
+        padding:20px 0;
     }
 
-    body {
-      background: #f4f7fb;
-      color: #222;
-      line-height: 1.6;
+    .desktop{
+        height:auto;
+        grid-template-columns:1fr;
+        grid-template-rows:auto;
     }
 
-    header {
-      background: linear-gradient(135deg, #c9dcff, #e9f1ff);
-      padding: 80px 10%;
-      position: relative;
-      overflow: hidden;
+    .main{
+        grid-column:auto;
+        flex-direction:column;
+        text-align:center;
+        gap:30px;
     }
-
-    .hero-circle {
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      background: rgba(255,255,255,0.4);
-      border-radius: 50%;
-      top: -200px;
-      left: -150px;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .logo {
-      font-size: 28px;
-      font-weight: bold;
-      color: #3a5fa8;
-      margin-bottom: 30px;
-    }
-
-    .hero-title {
-      font-size: 64px;
-      font-weight: 900;
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
-
-    .hero-title span {
-      color: #4f7de8;
-    }
-
-    .hero-sub {
-      font-size: 20px;
-      color: #555;
-      margin-bottom: 30px;
-    }
-
-    .btn {
-      display: inline-block;
-      background: #4f7de8;
-      color: white;
-      padding: 14px 30px;
-      border-radius: 40px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background: #345fc7;
-      transform: translateY(-2px);
-    }
-
-    nav {
-      position: absolute;
-      top: 30px;
-      right: 10%;
-    }
-
-    nav a {
-      margin-left: 25px;
-      text-decoration: none;
-      color: #444;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    section {
-      padding: 70px 10%;
-    }
-
-    .section-title {
-      font-size: 36px;
-      margin-bottom: 40px;
-      color: #2b4f9e;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-      gap: 25px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 24px;
-      padding: 30px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-    }
-
-    .card h3 {
-      margin-bottom: 15px;
-      color: #4f7de8;
-      font-size: 22px;
-    }
-
-    .weather-temp {
-      font-size: 54px;
-      font-weight: bold;
-      color: #2c4f9d;
-    }
-
-    .news-item {
-      margin-bottom: 16px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid #eee;
-    }
-
-    .news-item:last-child {
-      border-bottom: none;
-    }
-
-    .stat-number {
-      font-size: 42px;
-      font-weight: bold;
-      color: #4f7de8;
-      margin-bottom: 10px;
-    }
-
-    footer {
-      background: #2b4f9e;
-      color: white;
-      text-align: center;
-      padding: 30px;
-      margin-top: 60px;
-    }
-
-    @media(max-width:768px){
-      .hero-title{
-        font-size:42px;
-      }
-
-      nav{
-        position: static;
-        margin-bottom: 30px;
-      }
-
-      nav a{
-        margin-left: 0;
-        margin-right: 15px;
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="hero-circle"></div>
+<div class="desktop">
 
-    <nav>
-      <a href="#weather">날씨</a>
-      <a href="#busan">부산 이슈</a>
-      <a href="#pknu">부경대 뉴스</a>
-      <a href="#welfare">사회복지 통계</a>
-    </nav>
+    <div class="window main">
 
-    <div class="hero-content">
-      <div class="logo">부경대 사회복지학 실무역량 짱</div>
+        <div class="main-text">
+            <h1>
+                부경대 사회복지학<br>
+                <span>실무역량 짱</span>
+            </h1>
 
-      <h1 class="hero-title">
-        부경대 사회복지학<br />
-        <span>실무역량 짱</span>
-      </h1>
+            <p>
+                부산 정보 · 부경대 뉴스 · 사회복지 통계
+            </p>
+        </div>
 
-      <p class="hero-sub">
-        날씨 · 부산 이슈 · 부경대 뉴스 · 사회복지 통계를 한눈에
-      </p>
-
-      <a class="btn" href="#weather">바로 보기</a>
-    </div>
-  </header>
-
-  <section id="weather">
-    <h2 class="section-title">오늘의 부산 날씨</h2>
-
-    <div class="grid">
-      <div class="card">
-        <h3>현재 기온</h3>
-        <div class="weather-temp" id="temp">24°C</div>
-        <p id="weather-desc">맑음 ☀️</p>
-      </div>
-
-      <div class="card">
-        <h3>습도</h3>
-        <div class="stat-number" id="humidity">65%</div>
-        <p>쾌적한 날씨입니다.</p>
-      </div>
-
-      <div class="card">
-        <h3>미세먼지</h3>
-        <div class="stat-number">보통</div>
-        <p>야외 활동 가능</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="busan">
-    <h2 class="section-title">부산 주요 이슈</h2>
-
-    <div class="grid">
-      <div class="card">
-        <h3>가덕도 신공항</h3>
-        <p>
-          부산의 핵심 개발 사업으로 지역 경제 활성화와 관광 산업 확대가 기대되고 있습니다.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>부산 청년 정책</h3>
-        <p>
-          청년 주거 지원과 취업 지원 사업 확대를 통해 지역 정착을 유도하고 있습니다.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>2030 부산 발전 전략</h3>
-        <p>
-          친환경 도시 조성과 글로벌 해양도시 경쟁력 강화를 목표로 다양한 정책이 추진 중입니다.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="pknu">
-    <h2 class="section-title">부경대학교 뉴스</h2>
-
-    <div class="card">
-      <div class="news-item">
-        <strong>AI 기반 스마트 해양 연구 확대</strong>
-        <p>부경대학교 연구진이 해양 데이터 분석 기술을 활용한 연구를 진행하고 있습니다.</p>
-      </div>
-
-      <div class="news-item">
-        <strong>지역사회 연계 사회공헌 활동</strong>
-        <p>학생들과 지역 기관이 협력하여 다양한 봉사 프로그램을 운영 중입니다.</p>
-      </div>
-
-      <div class="news-item">
-        <strong>학생 창업 지원 프로그램 강화</strong>
-        <p>창업 교육과 멘토링을 통해 청년 창업 활성화를 지원하고 있습니다.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="welfare">
-    <h2 class="section-title">사회복지 통계</h2>
-
-    <div class="grid">
-
-      <div class="card">
-        <h3>노인 인구 비율</h3>
-        <div class="stat-number">18.4%</div>
-        <p>고령화 사회 진입에 따른 복지 수요 증가</p>
-      </div>
-
-      <div class="card">
-        <h3>1인 가구 증가율</h3>
-        <div class="stat-number">32%</div>
-        <p>청년·노인 1인 가구 지원 정책 확대 필요</p>
-      </div>
-
-      <div class="card">
-        <h3>사회복지 예산</h3>
-        <div class="stat-number">35%</div>
-        <p>지자체 전체 예산 중 복지 분야 비중</p>
-      </div>
+        <div class="main-circle"></div>
 
     </div>
-  </section>
 
-  <footer>
-    © 2026 부경대 사회복지학 실무역량 짱
-  </footer>
+    <!-- 날씨 -->
+    <div class="window">
 
-  <script>
-    const hour = new Date().getHours();
+        <div class="window-header">
+            <div class="circle red"></div>
+            <div class="circle yellow"></div>
+            <div class="circle green"></div>
 
-    if(hour >= 6 && hour < 12){
-      document.getElementById("weather-desc").innerText = "좋은 아침입니다 ☀️";
-    } else if(hour >= 12 && hour < 18){
-      document.getElementById("weather-desc").innerText = "활기찬 오후입니다 🌤️";
-    } else {
-      document.getElementById("weather-desc").innerText = "편안한 밤 되세요 🌙";
-    }
+            <div class="window-title">
+                부산 날씨
+            </div>
+        </div>
 
-    const temp = Math.floor(Math.random() * 8) + 20;
-    document.getElementById("temp").innerText = temp + "°C";
+        <div class="content">
 
-    const humidity = Math.floor(Math.random() * 20) + 50;
-    document.getElementById("humidity").innerText = humidity + "%";
-  </script>
+            <div class="temp" id="temp">
+                24°C
+            </div>
+
+            <h3 id="weatherText">
+                맑음 ☀️
+            </h3>
+
+            <ul class="list">
+                <li>습도: <span id="humidity">65%</span></li>
+                <li>미세먼지: 보통</li>
+                <li>야외 활동 가능</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- 부산 이슈 -->
+    <div class="window">
+
+        <div class="window-header">
+            <div class="circle red"></div>
+            <div class="circle yellow"></div>
+            <div class="circle green"></div>
+
+            <div class="window-title">
+                부산 주요 이슈
+            </div>
+        </div>
+
+        <div class="content">
+
+            <ul class="list">
+                <li>
+                    <strong>가덕도 신공항</strong><br>
+                    지역 경제 활성화 기대
+                </li>
+
+                <li>
+                    <strong>청년 정책 확대</strong><br>
+                    주거 및 취업 지원 강화
+                </li>
+
+                <li>
+                    <strong>2030 부산 전략</strong><br>
+                    글로벌 해양도시 추진
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- 부경대 뉴스 -->
+    <div class="window">
+
+        <div class="window-header">
+            <div class="circle red"></div>
+            <div class="circle yellow"></div>
+            <div class="circle green"></div>
+
+            <div class="window-title">
+                부경대학교 뉴스
+            </div>
+        </div>
+
+        <div class="content">
+
+            <ul class="list">
+                <li>AI 기반 스마트 해양 연구 확대</li>
+                <li>지역사회 봉사활동 진행</li>
+                <li>학생 창업 지원 프로그램 강화</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- 사회복지 통계 -->
+    <div class="window">
+
+        <div class="window-header">
+            <div class="circle red"></div>
+            <div class="circle yellow"></div>
+            <div class="circle green"></div>
+
+            <div class="window-title">
+                사회복지 통계
+            </div>
+        </div>
+
+        <div class="content">
+
+            <div class="stat">18.4%</div>
+            <p>노인 인구 증가</p>
+
+            <br>
+
+            <div class="stat">32%</div>
+            <p>1인 가구 증가율</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+© 2026 부경대 사회복지학 실무역량 짱
+</footer>
+
+<script>
+
+const temp = Math.floor(Math.random() * 8) + 20;
+document.getElementById("temp").innerText = temp + "°C";
+
+const humidity = Math.floor(Math.random() * 20) + 50;
+document.getElementById("humidity").innerText = humidity + "%";
+
+const hour = new Date().getHours();
+
+if(hour >= 6 && hour < 12){
+    document.getElementById("weatherText").innerText = "좋은 아침입니다 ☀️";
+}
+else if(hour >= 12 && hour < 18){
+    document.getElementById("weatherText").innerText = "활기찬 오후입니다 🌤️";
+}
+else{
+    document.getElementById("weatherText").innerText = "편안한 밤 되세요 🌙";
+}
+
+</script>
 
 </body>
 </html>
